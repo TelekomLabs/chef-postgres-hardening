@@ -1,10 +1,9 @@
-# encoding: utf-8
 #
-# Cookbook Name:: postgres-hardening
+# Cookbook:: postgres-hardening
 # Attributes:: default
 #
-# Copyright 2014, Christoph Hartmann
-# Copyright 2014, Deutsche Telekom AG
+# Copyright:: 2014, Christoph Hartmann
+# Copyright:: 2014, Deutsche Telekom AG
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -48,5 +47,5 @@ default['postgresql']['pg_hba'] = [
   # all others are md5 now
   { type: 'local', db: 'all', user: 'all', addr: nil, method: 'md5' },
   { type: 'host', db: 'all', user: 'all', addr: '127.0.0.1/32', method: 'md5' },
-  { type: 'host', db: 'all', user: 'all', addr: '::1/128', method: 'md5' }
+  { type: 'host', db: 'all', user: 'all', addr: '::1/128', method: 'md5' },
 ]

@@ -1,9 +1,8 @@
-# encoding: utf-8
 #
-# Cookbook Name: postgres-hardening
+# Cookbook:: Name: postgres-hardening
 # Recipe: default
 #
-# Copyright 2014, Deutsche Telekom AG
+# Copyright:: 2014, Deutsche Telekom AG
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,4 +17,4 @@
 # limitations under the License.
 #
 
-include_recipe('postgres-hardening::hardening')
+include_recipe 'postgres-hardening::hardening'

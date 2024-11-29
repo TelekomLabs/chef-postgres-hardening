@@ -1,6 +1,5 @@
-# encoding: utf-8
 #
-# Copyright 2015, Hardening Framework Team
+# Copyright:: 2015, Hardening Framework Team
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,7 +22,7 @@ describe 'postgres-hardening::hardening' do
       { os_name: 'ubuntu', os_version: '12.04', postgres_version: '9.3' },
       { os_name: 'ubuntu', os_version: '14.04', postgres_version: '9.3' },
       { os_name: 'debian', os_version: '6.0.5', postgres_version: '9.3' },
-      { os_name: 'debian', os_version: '7.5', postgres_version: '9.3' }
+      { os_name: 'debian', os_version: '7.5', postgres_version: '9.3' },
     ]
 
     platforms.each do |platform|
@@ -45,11 +44,11 @@ describe 'postgres-hardening::hardening' do
           stub_command("ls -l /var/lib/postgresql/#{@postgres_version}/main/server.crt |grep /etc/ssl/certs/ssl-cert-snakeoil.pem").and_return(true)
           stub_command("ls -l /var/lib/postgresql/#{@postgres_version}/main/server.key |grep /etc/ssl/private/ssl-cert-snakeoil.key").and_return(true)
 
-          expect(chef_run).to create_directory('/var/lib/postgresql/').
-            with(mode: '0700')
+          expect(chef_run).to create_directory('/var/lib/postgresql/')
+            .with(mode: '0700')
 
-          expect(chef_run).to create_directory("/var/lib/postgresql/#{@postgres_version}").
-            with(mode: '0700')
+          expect(chef_run).to create_directory("/var/lib/postgresql/#{@postgres_version}")
+            .with(mode: '0700')
         end
 
         it 'deletes links if commands return true' do
